@@ -6,8 +6,7 @@ from .forms import RecipeSearchForm
 import pandas as pd
 from .utils import get_chart
 
-def Main(request):
-    return render(request, 'recipes/home.html')
+
 
 
 class RecipeListView(LoginRequiredMixin,ListView):
