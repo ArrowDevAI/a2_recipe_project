@@ -1,17 +1,18 @@
-
-{% load static %}
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe App</title>
+
+    <!-- Load static files -->
+    {% load static %}
     <link rel="stylesheet" href="{% static 'recipes/style.css' %}">
     <script src="{% static 'recipes/home.js' %}" defer></script>
 </head>
-
-<!DOCTYPE html>
-<html>
-    <title>Recipe App</title>
-   <body>
-       <div>
-           <h1> Login to see your Recipes <a href="{% url 'login' %}">Login</a> </h1>
-       </div>
-   </body>
+<body>
+    <div>
+        <h1>Login to see your Recipes <a href="{% url 'login' %}">Login</a></h1>
+    </div>
+</body>
 </html>

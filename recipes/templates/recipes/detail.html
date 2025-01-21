@@ -1,18 +1,41 @@
-<a href="{% url 'logout' %}">Logout</a>
-<h2>Details: {{ object.name }}</h2>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recipe Details</title>
+    <!-- You can add CSS links here -->
+</head>
+<body>
 
-<b>Ingredients: </b>
-<ul>
-    {% for ingredient in object.ingredients.all %}
-        <li>{{ ingredient.name }}</li> <!-- Adjust depending on your Ingredient model's fields -->
-    {% empty %}
-        <li>No ingredients available.</li>
-    {% endfor %}
-</ul>
+    <header>
+        <a href="{% url 'logout' %}">Logout</a>
+    </header>
 
-<b>Cook Time: </b> {{ object.cook_time }} <br>
+    <main>
+        <h2>Details: {{ object.name }}</h2>
 
-<b>Difficulty: </b> {{ object.difficulty }} <br>
+        <section>
+            <b>Ingredients: </b>
+            <ul>
+                {% for ingredient in object.ingredients.all %}
+                    <li>{{ ingredient.name }}</li> <!-- Adjust depending on your Ingredient model's fields -->
+                {% empty %}
+                    <li>No ingredients available.</li>
+                {% endfor %}
+            </ul>
+        </section>
 
-<img src="{{ object.pic.url }}" width="300" height="300" style="object-fit: cover; padding: 10px;" />
+        <section>
+            <b>Cook Time: </b> {{ object.cook_time }} <br>
 
+            <b>Difficulty: </b> {{ object.difficulty }} <br>
+        </section>
+
+        <section>
+            <img src="{{ object.pic.url }}" width="300" height="300" style="object-fit: cover; padding: 10px;" />
+        </section>
+    </main>
+
+</body>
+</html>

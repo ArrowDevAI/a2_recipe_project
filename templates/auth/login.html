@@ -1,17 +1,31 @@
-<h1>Login</h1>          
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <!-- You can add CSS links here -->
+</head>
+<body>
 
-{% if error_message %}
-   {{error_message}}
-{% endif %}
+    <header>
+        <h1>Login</h1>
+    </header>
 
-<form action="" method="POST" >
-   {% comment %} add Django security token {% endcomment %}
+    <main>
+        {% if error_message %}
+            <p>{{ error_message }}</p>
+        {% endif %}
 
-   {% csrf_token %}   
+        <form action="" method="POST">
+            {% csrf_token %} <!-- Add Django security token -->
 
-   {% comment %} print form received from view  {% endcomment %}
-   
-   {{form}}           
+            <!-- Print the form received from the view -->
+            {{ form }}
 
-   <button type="submit" >Login</button>
-</form>
+            <button type="submit">Login</button>
+        </form>
+    </main>
+
+</body>
+</html>
