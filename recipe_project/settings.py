@@ -14,12 +14,17 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Database configuration from environment variable
 DATABASES = {
-    'default': dj_database_url.config(
-        default=os.environ.get('DATABASE_URL'),  # Use DATABASE_URL from .env
-        conn_max_age=500,  # Reuse database connections
-        ssl_require=True   # Enforce SSL in production
-    )
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'recipe_project',
+        'USER': env("DB_USERNAME"),
+        'PASSWORD': env("DB_PASSWORD"),
+        'HOST': 'localhost',
+        'PORT': '5432'
+    }
 }
+db_from_env = dj_database_url.config(conn_max_age=500, ssl_require=True)
+DATABASES['default'].update(db_from_env)
 
 
 # Other settings...
