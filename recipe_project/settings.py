@@ -13,19 +13,19 @@ environ.Env.read_env()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Database configuration from environment variable
-db_from_env = dj_database_url.config(conn_max_age=500)
-
-
-# Update DATABASES with the parsed db_from_env config
 DATABASES = {
-    'default': db_from_env
+    'default': dj_database_url.config(
+        default=os.environ.get('DATABASE_URL'),  # Use DATABASE_URL from .env
+        conn_max_age=500,  # Reuse database connections
+        ssl_require=True   # Enforce SSL in production
+    )
 }
 
 
 # Other settings...
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-b2_^niz%8o5qyhx())jzz+e+#((e0vvzio(kb-k9o@ne73-w6s')
-DEBUG = True
-ALLOWED_HOSTS = []
+DEBUG = False
+ALLOWED_HOSTS = ["https://quiet-sea-69568-9473b296595d.herokuapp.com/", "localhost","127.0.0.1"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
