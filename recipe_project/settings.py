@@ -14,13 +14,13 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Database configuration from environment variable
 DATABASES = {
-    'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=500, ssl_require=True)
+    'default': dj_database_url.config(default=env('DATABASE_URL'), conn_max_age=500, ssl_require=False)
 }
 
 
 # Other settings...
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-b2_^niz%8o5qyhx())jzz+e+#((e0vvzio(kb-k9o@ne73-w6s')
-DEBUG = True
+DEBUG = False
 ALLOWED_HOSTS = ["quiet-sea-69568-9473b296595d.herokuapp.com/", "localhost","127.0.0.1"]
 
 INSTALLED_APPS = [
