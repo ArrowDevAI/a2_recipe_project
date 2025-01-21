@@ -1,0 +1,17 @@
+
+{% load static %}
+
+<head>
+    <link rel="stylesheet" href="{% static 'recipes/style.css' %}">
+    <script src="{% static 'recipes/home.js' %}" defer></script>
+</head>
+
+<!DOCTYPE html>
+<html>
+    <title>Recipe App</title>
+   <body>
+       <div>
+           <h1> Login to see your Recipes <a href="{% url 'login' %}">Login</a> </h1>
+       </div>
+   </body>
+</html>

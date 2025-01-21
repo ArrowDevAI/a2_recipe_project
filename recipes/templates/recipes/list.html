@@ -1,0 +1,56 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>Recipe App</title>
+       <style>
+           .recipe-image {
+               width: 100px;
+               height: 100px;
+               object-fit: cover;
+           }
+           .search-container {
+               margin-bottom: 20px;
+           }
+           .search-button {
+               padding: 10px 15px;
+               background-color: #007BFF;
+               color: white;
+               border: none;
+               border-radius: 5px;
+               text-decoration: none;
+               font-size: 14px;
+               cursor: pointer;
+           }
+           .search-button:hover {
+               background-color: #0056b3;
+           }
+       </style>
+   </head>
+   <body>
+       <a href="{% url 'logout' %}">Logout</a>
+       <h1>Recipe List</h1> 
+
+       <!-- Search Section -->
+       <div class="search-container">
+           <span>Search for Recipes</span>
+           <a href="{% url 'recipes:search' %}" class="search-button">Go to Search</a>
+       </div>
+
+       <!-- Recipe Table -->
+       <table border="1" cellpadding="5" cellspacing="5">    
+          <tr> 
+              <td><strong>Recipe Names</strong></td> 
+              <td><strong>Recipe Image</strong></td>    
+          </tr>
+
+        {% for object in object_list %}
+            <tr>
+                <td><a href="{{ object.get_absolute_url }}"> {{ object.name }} </a></td>
+                <td><img src="{{ object.pic.url }}" class="recipe-image" /></td>
+            </tr>
+        {% endfor %}
+       </table>
+   </body>
+</html>

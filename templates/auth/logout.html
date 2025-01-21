@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+   <head>
+       <title>Recipe App</title>
+       <style>
+           /* Apply styles to center the content */
+           body {
+               display: flex;
+               flex-direction: column; /* Stack items vertically */
+               justify-content: center;
+               align-items: center;
+               height: 100vh; /* Full viewport height */
+               margin: 0;
+               font-family: Arial, sans-serif;
+               background-color: #f8f9fa; /* Light gray background */
+           }
+
+           div {
+               margin-bottom: 20px; /* Add spacing below the "YOU LOGGED OUT" text */
+               font-size: 24px;
+           }
+
+           a {
+               text-decoration: none;
+               color: #007bff; /* Bootstrap primary color */
+               font-size: 20px;
+               font-weight: bold;
+           }
+
+           a:hover {
+               text-decoration: underline;
+           }
+       </style>
+   </head>
+   <body>
+       <div>YOU LOGGED OUT</div>
+       <a href="{% url 'login' %}">Login Again</a>
+   </body>
+</html>
