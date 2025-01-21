@@ -21,7 +21,7 @@ DATABASES = {
 # Other settings...
 SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'django-insecure-b2_^niz%8o5qyhx())jzz+e+#((e0vvzio(kb-k9o@ne73-w6s')
 DEBUG = False
-ALLOWED_HOSTS = ["quiet-sea-69568-9473b296595d.herokuapp.com/", "localhost","127.0.0.1"]
+ALLOWED_HOSTS = ["quiet-sea-69568-9473b296595d.herokuapp.com", "localhost","127.0.0.1"]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
